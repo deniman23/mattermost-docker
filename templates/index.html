@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div id="login-container">
+    <h2>Login</h2>
+    <input type="text" id="user-token" placeholder="Enter user token">
+    <input type="text" id="channel-id" placeholder="Enter channel ID">
+    <button onclick="login()">Login</button>
+</div>
+<div id="chat-container" style="display: none;">
+    <div id="chat-header">Chat with Mattermost</div>
+    <div id="chat-messages"></div>
+    <div id="chat-input">
+        <input type="text" id="message-input" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+        <button onclick="startVideoCall()">Start Video Call</button>
+    </div>
+</div>
+<div id="video-call" style="display: none;">
+    <video id="localVideo" autoplay muted></video>
+    <video id="remoteVideo" autoplay></video>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.3/socket.io.js"></script>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
